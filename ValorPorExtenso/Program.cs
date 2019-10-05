@@ -23,39 +23,52 @@ namespace ValorPorExtenso
         
         private static void trabalharString(string bruto, decimal num)
         {
-            List<string> refinado = new List<string>();
-            string[] temp = bruto.Split();
-
-            for (int i = 0; i < temp.Length; i++)
+            List<string> listaBruto = new List<string>();
+            string[] splitBruto = bruto.Split();
+            Int64 iNum = Decimal.ToInt64(num);
+            string sNum = iNum.ToString();
+            int tamanhoNum = sNum.Length;
+            string refinado = "";
+            int contador = -1;
+            for (int i = 0; i < splitBruto.Length; i++)
             {
-                refinado.Add(temp[i]);
+                for (int j = 0; j < splitBruto.Length; j++)
+                {
+                    if (contador % 3 == 0 & contador != 0)
+                    {
+                        listaBruto = listaBruto.Append(",").ToList();
+                        contador++;
+
+                        break;
+                    }
+                    contador++;
+
+                    break;
+                }
+                listaBruto = listaBruto.Append(splitBruto[i]).ToList();
+                if (i % 3 != 0) 
+                {
+                    listaBruto = listaBruto.Append("e").ToList();
+                }
+                Console.WriteLine();
+                Console.WriteLine(listaBruto[i]);
+
             }
 
-            for (int i = (temp.Length); i >= 0; i -= 3)
+            foreach (string item in listaBruto) // coloca tudo na mesma linha
             {
-                try
-                {
-
-                    refinado.Insert(i,",");
-
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    Console.WriteLine("out of range exception");
-                    break;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    Console.WriteLine("out of range exception1");
-                    break;
-                }
-                finally
-                {
-                    foreach (string item in refinado)
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
+                refinado += item + " ";
+                
+            }
+            Console.WriteLine(refinado);
+            if (sNum.Contains(','))         //número possui decimais
+            {
+                Console.WriteLine("DECIMAL!!");
+                
+            } else                          //número é inteiro
+            {
+                Console.WriteLine("INTEIRO!!");
+                
             }
         }      
 

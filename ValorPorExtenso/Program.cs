@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ValorPorExtenso
@@ -23,54 +22,148 @@ namespace ValorPorExtenso
         
         private static void trabalharString(string bruto, decimal num)
         {
-            List<string> listaBruto = new List<string>();
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb1 = new StringBuilder();
+
+            string[] valoresPlural = {"bilhões", "milhões", "mil" };
+            string[] valoresSingular = { "bilhão", "milhão", "mil" };
+
+            string[] reais = { "real", "reais", "centavo", "centavos" };
+            Int64 iNum = Decimal.ToInt64(num);
+            string sNum = num.ToString();
+            string siNum = iNum.ToString();
+            int contador = -1;
+            bool porTres = false;
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+
+            if (sNum.Contains(',') | sNum.Contains('.'))
+            {
+                if (siNum.Length % 3 == 0)
+                {
+                    contador = 0;
+                    porTres = true;
+                } else if ((sNum.Length) == 11 | (sNum.Length) == 8 | (sNum.Length) == 5) 
+                {
+                    contador = 1;
+                } else
+                {
+                    contador = -1;
+                }
+            } else {
+
+                if (((sNum.Length) % 3 == 0)) // se tiver separação a cada 3 espaços
+                {
+                    contador = 0;
+                    porTres = true;
+                } else if ((sNum.Length) == 11 | (sNum.Length) == 8 | (sNum.Length) == 5) // se tiver separação a cada 2 espaços
+                {
+                    contador = 1;
+                } else
+                {
+                    contador = 2;
+                }
+            }
+            foreach (string s in bruto.Trim().Split())
+            {
+
+                if (contador % 3 == 0 & contador > 0)
+                {
+                    sb.Append($"{','}{' '}{s}");
+                }
+                else if (contador % 1 == 0 & contador > 0)
+                {
+                    sb.Append(" e " + s);
+                }
+                else
+                {
+                    sb.Append(s);
+                }
+                
+                contador++;
+            }
+
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+
+            string temp = sb.ToString().Trim();
+            Console.WriteLine(temp);
+            string[] temp2 = temp.Split().Reverse().ToArray();
+
+            foreach (string s in temp2)
+            {
+                sb1.Append(" "+s+" ");
+            }
+
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+
+            Console.WriteLine(sb1.ToString());
+
+
+            //------------------------------
+
+            /*
             string[] splitBruto = bruto.Split();
             Int64 iNum = Decimal.ToInt64(num);
             string sNum = iNum.ToString();
             int tamanhoNum = sNum.Length;
-            string refinado = "";
             int contador = -1;
             for (int i = 0; i < splitBruto.Length; i++)
             {
                 for (int j = 0; j < splitBruto.Length; j++)
                 {
-                    if (contador % 3 == 0 & contador != 0)
+                    string[] valores = { "bilhão", "bilhões", "milhão", "milhões", "mil" };
+                    string[] reais = { "real", "reais", "centavo", "centavos" };
+                    if (contador % 3 == 0 & contador != 0 & contador < 4)
                     {
-                        listaBruto = listaBruto.Append(",").ToList();
-                        contador++;
 
+                        if (iNum >= 2000000000) // se par
+                        {
+                            sb.Append($"{valores[1]}{','}");
+                        }
+                        else                  // se impar
+                        {
+                            sb.Append($"{valores[0]}{','}");
+                        }
+                        contador++;
                         break;
+                    }
+                    else if (contador % 3 == 0 & contador != 0 & contador < 8)
+                    {
+                        if (iNum % 2000000 == 0)
+                        {
+                            sb.Append($"{valores[2]}{','}");
+                        }
+                        else
+                        {
+                            sb.Append($"{valores[3]}{','}");
+                        }
+                    }
+                    else if (contador % 3 == 0 & contador != 0 & contador < 12)
+                    {
+                        sb.Append($"{valores[4]}{','}");
+
                     }
                     contador++;
 
                     break;
                 }
-                listaBruto = listaBruto.Append(splitBruto[i]).ToList();
-                if (i % 3 != 0) 
+                sb.Append(splitBruto[i]);
+                if (i % 3 != 0)
                 {
-                    listaBruto = listaBruto.Append("e").ToList();
+                    sb.Append("e");
                 }
                 Console.WriteLine();
-                Console.WriteLine(listaBruto[i]);
+                
 
             }
+            */
 
-            foreach (string item in listaBruto) // coloca tudo na mesma linha
-            {
-                refinado += item + " ";
-                
-            }
-            Console.WriteLine(refinado);
-            if (sNum.Contains(','))         //número possui decimais
-            {
-                Console.WriteLine("DECIMAL!!");
-                
-            } else                          //número é inteiro
-            {
-                Console.WriteLine("INTEIRO!!");
-                
-            }
-        }      
+            //------------------------------
+
+
+
+
+
+        }
 
         private static decimal LerNum()
         {

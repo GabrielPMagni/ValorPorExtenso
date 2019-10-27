@@ -14,7 +14,8 @@ namespace ValorPorExtenso
             //Feito em uma nova função e não no Main para poder ser chamada em 
             //caso de erro sem precisar retornar ao Main
              
-            StringBuilder resultado = ParaExtenso(num);
+            ClasseParaExtenso MyClasseParaExtenso = new ClasseParaExtenso();
+            StringBuilder resultado = MyClasseParaExtenso.ParaExtenso(num);
             Console.WriteLine(resultado);
             TrabalharString(resultado, num);
         }
@@ -47,9 +48,15 @@ namespace ValorPorExtenso
             }
         }
 
-        private static StringBuilder ParaExtenso(decimal num)
+        
+            
+    }
+
+    public class ClasseParaExtenso {
+
+        public StringBuilder ParaExtenso(decimal num)
         {
-            StringBuilder numeroPorExtenso = new StringBuilder();
+        StringBuilder numeroPorExtenso = new StringBuilder();
             string stringNumero = num.ToString();
 
             void UnidadesDecimal()

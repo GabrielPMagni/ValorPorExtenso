@@ -441,26 +441,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gpmag\\.nuget\\packages\\": {}
+    "/home/logic/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gpmag\\source\\repos\\ValorPorExtenso\\ValorPorExtenso\\ValorPorExtenso.csproj",
+      "projectUniqueName": "/home/logic/Downloads/ValorPorExtenso-StringBuilderUse/ValorPorExtenso/ValorPorExtenso.csproj",
       "projectName": "ValorPorExtenso",
-      "projectPath": "C:\\Users\\gpmag\\source\\repos\\ValorPorExtenso\\ValorPorExtenso\\ValorPorExtenso.csproj",
-      "packagesPath": "C:\\Users\\gpmag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gpmag\\source\\repos\\ValorPorExtenso\\ValorPorExtenso\\obj\\",
+      "projectPath": "/home/logic/Downloads/ValorPorExtenso-StringBuilderUse/ValorPorExtenso/ValorPorExtenso.csproj",
+      "packagesPath": "/home/logic/.nuget/packages/",
+      "outputPath": "/home/logic/Downloads/ValorPorExtenso-StringBuilderUse/ValorPorExtenso/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gpmag\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/logic/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -499,7 +497,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

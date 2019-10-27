@@ -6,34 +6,30 @@ namespace ValorPorExtenso
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Digite um número entre 0 e 999:"); //Imprime na tela o que deve ser feito
+            Console.WriteLine("Digite um número entre 0 e 999 bilhões: "); //Imprime na tela o que deve ser feito
             decimal num = LerNum(); //variavel num recebe retorno da função LerNum
-            /*
-             * Feito em uma nova função e não no Main para poder ser chamada em 
-             * caso de erro sem precisar retornar ao Main
-             */
-            StringBuilder sResultado = paraExtenso(num);
-            Console.WriteLine(sResultado);
-            trabalharString(sResultado, num);
+            
+            //Feito em uma nova função e não no Main para poder ser chamada em 
+            //caso de erro sem precisar retornar ao Main
+             
+            StringBuilder resultado = ParaExtenso(num);
+            Console.WriteLine(resultado);
+            TrabalharString(resultado, num);
         }
         
-        private static void trabalharString(StringBuilder bruto, decimal num)
+        private static void TrabalharString(StringBuilder bruto, decimal num)
         {
-            string sNum = num.ToString().Reverse().ToString();
-
+            string numeroExtenso = num.ToString().Reverse().ToString();
         }
 
         private static decimal LerNum()
         {
             try
             {
-                string num1;
-                decimal num;
-                num1 = Console.ReadLine();
-                num = decimal.Parse(num1);
+                string stringNumero = Console.ReadLine();
+                decimal num = decimal.Parse(stringNumero);
                 if (num >= 0 && num <= 999999999999.99m)
                 {
                     return num;
@@ -43,7 +39,6 @@ namespace ValorPorExtenso
                     Console.WriteLine("Digite somente números entre 0 e 999 bilhões");
                     return LerNum();
                 }
-
             }
             catch (Exception erro)
             {
@@ -52,326 +47,290 @@ namespace ValorPorExtenso
             }
         }
 
-        private static StringBuilder paraExtenso(decimal num)
+        private static StringBuilder ParaExtenso(decimal num)
         {
-            StringBuilder sb = new StringBuilder();
-            Int64 iNum = Decimal.ToInt64(num);
-            string sNum = num.ToString();
-            string siNum = iNum.ToString();
-            string sResultado ="";
+            StringBuilder numeroPorExtenso = new StringBuilder();
+            string stringNumero = num.ToString();
 
-            void unidades_decimal()
+            void UnidadesDecimal()
             {
                 if (num == 0.01m)
                 {
-                    sb.Append(" um");
+                    numeroPorExtenso.Append(" um");
                     num -= 0.01m;
-
                 }
                 else if (num == 0.02m)
                 {
-                    sb.Append(" dois");
+                    numeroPorExtenso.Append(" dois");
                     num -= 0.02m;
-
                 }
                 else if (num == 0.03m)
                 {
-                    sb.Append(" três");
+                    numeroPorExtenso.Append(" três");
                     num -= 0.03m;
-
                 }
                 else if (num == 0.04m)
                 {
-                    sb.Append(" quatro");
+                    numeroPorExtenso.Append(" quatro");
                     num -= 0.04m;
-
                 }
                 else if (num == 0.05m)
                 {
-                    sb.Append(" cinco");
+                    numeroPorExtenso.Append(" cinco");
                     num -= 0.05m;
-
                 }
                 else if (num == 0.06m)
                 {
-                    sb.Append(" seis");
+                    numeroPorExtenso.Append(" seis");
                     num -= 0.06m;
-
                 }
                 else if (num == 0.07m)
                 {
-                    sb.Append(" sete");
+                    numeroPorExtenso.Append(" sete");
                     num -= 0.07m;
-
                 }
                 else if (num == 0.08m)
                 {
-                    sb.Append(" oito");
+                    numeroPorExtenso.Append(" oito");
                     num -= 0.08m;
-
                 }
                 else if (num == 0.09m)
                 {
-                    sb.Append(" nove");
+                    numeroPorExtenso.Append(" nove");
                     num -= 0.09m;
-
                 }
             }
-
-            void dezenas_decimal()
+            void DezenasDecimal()
             {
                 if (num < 0.10m)
                 {
-                    unidades_decimal();
+                    UnidadesDecimal();
                 }
                 else if (num < 0.20m)
                 {
                     if (num == 0.10m)
                     {
-                        sb.Append(" dez");
+                        numeroPorExtenso.Append(" dez");
                         num -= 0.10m;
-
                     }
                     else if (num == 0.11m)
                     {
-                        sb.Append(" onze");
+                        numeroPorExtenso.Append(" onze");
                         num -= 0.11m;
-
                     }
                     else if (num == 0.12m)
                     {
-                        sb.Append(" doze");
+                        numeroPorExtenso.Append(" doze");
                         num -= 0.12m;
-
                     }
                     else if (num == 0.13m)
                     {
-                        sb.Append(" treze");
+                        numeroPorExtenso.Append(" treze");
                         num -= 0.13m;
-
                     }
                     else if (num == 0.14m)
                     {
-                        sb.Append(" quatorze");
+                        numeroPorExtenso.Append(" quatorze");
                         num -= 0.14m;
-
                     }
                     else if (num == 0.15m)
                     {
-                        sb.Append(" quinze");
+                        numeroPorExtenso.Append(" quinze");
                         num -= 0.15m;
-
                     }
                     else if (num == 0.16m)
                     {
-                        sb.Append(" dezesseis");
+                        numeroPorExtenso.Append(" dezesseis");
                         num -= 0.16m;
-
                     }
                     else if (num == 0.17m)
                     {
-                        sb.Append(" dezessete");
+                        numeroPorExtenso.Append(" dezessete");
                         num -= 0.17m;
-
                     }
                     else if (num == 0.18m)
                     {
-                        sb.Append(" dezoito");
+                        numeroPorExtenso.Append(" dezoito");
                         num -= 0.18m;
-
                     }
                     else if (num == 0.19m)
                     {
-                        sb.Append(" dezenove");
+                        numeroPorExtenso.Append(" dezenove");
                         num -= 0.19m;
-
                     }
                 }
                 else if (num < 0.30m)
                 {
-
                     num -= 0.20m;
-                    sb.Append(" vinte");
-
-
+                    numeroPorExtenso.Append(" vinte");
                 }
                 else if (num < 0.40m)
                 {
                     num -= 0.30m;
-                    sb.Append(" trinta");
-
+                    numeroPorExtenso.Append(" trinta");
                 }
                 else if (num < 0.50m)
                 {
                     num -= 0.40m;
-
-                    sb.Append(" quarenta");
-
+                    numeroPorExtenso.Append(" quarenta");
                 }
                 else if (num < 0.60m)
                 {
                     num -= 0.50m;
-
-                    sb.Append(" cinquenta");
-
+                    numeroPorExtenso.Append(" cinquenta");
                 }
                 else if (num < 0.70m)
                 {
                     num -= 0.60m;
-
-                    sb.Append(" sessenta");
-
+                    numeroPorExtenso.Append(" sessenta");
                 }
                 else if (num < 0.80m)
                 {
                     num -= 0.70m;
 
-                    sb.Append(" setenta");
+                    numeroPorExtenso.Append(" setenta");
 
                 }
                 else if (num < 0.90m)
                 {
                     num -= 0.80m;
 
-                    sb.Append(" oitenta");
+                    numeroPorExtenso.Append(" oitenta");
 
                 }
                 else if (num < 1)
                 {
                     num -= 0.90m;
-                    sb.Append(" noventa");
+                    numeroPorExtenso.Append(" noventa");
 
                 }
-                unidades_decimal();
+                UnidadesDecimal();
             }
 
-            void unidades()
+            void Unidades()
             {
                 if (num >= 9)
                 {
                     num -= 9;
-                    sb.Append(" nove");
+                    numeroPorExtenso.Append(" nove");
 
                 }
                 else if (num >= 8)
                 {
                     num -= 8;
-                    sb.Append(" oito");
+                    numeroPorExtenso.Append(" oito");
 
                 }
                 else if (num >= 7)
                 {
                     num -= 7;
-                    sb.Append(" sete");
+                    numeroPorExtenso.Append(" sete");
 
                 }
                 else if (num >= 6)
                 {
                     num -= 6;
-                    sb.Append(" seis");
+                    numeroPorExtenso.Append(" seis");
 
                 }
                 else if (num >= 5)
                 {
                     num -= 5;
-                    sb.Append(" cinco");
+                    numeroPorExtenso.Append(" cinco");
 
                 }
                 else if (num >= 4)
                 {
                     num -= 4;
-                    sb.Append(" quatro");
+                    numeroPorExtenso.Append(" quatro");
 
                 }
                 else if (num >= 3)
                 {
                     num -= 3;
-                    sb.Append(" três");
+                    numeroPorExtenso.Append(" três");
 
                 }
                 else if (num >= 2)
                 {
                     num -= 2;
-                    sb.Append(" dois");
+                    numeroPorExtenso.Append(" dois");
 
                 }
                 else if (num >= 1)
                 {
                     num -= 1;
-                    sb.Append(" um");
-
+                    numeroPorExtenso.Append(" um");
                 }
-                
-                dezenas_decimal();
-                
+                DezenasDecimal();
             }
 
-            void dezenas()
+            void Dezenas()
             {
                 if (num < 10)
                 {
-                    unidades();
+                    Unidades();
                 }
                 else if (num < 20)
                 {
                     if (num >= 19)
                     {
                         num -= 19;
-                        sb.Append(" dezenove");
+                        numeroPorExtenso.Append(" dezenove");
 
                     }
                     else if (num >= 18)
                     {
                         num -= 18;
-                        sb.Append(" dezoito");
+                        numeroPorExtenso.Append(" dezoito");
 
                     }
                     else if (num >= 17)
                     {
                         num -= 17;
-                        sb.Append(" dezessete");
+                        numeroPorExtenso.Append(" dezessete");
 
                     }
                     else if (num >= 16)
                     {
                         num -= 16;
-                        sb.Append(" dezesseis");
+                        numeroPorExtenso.Append(" dezesseis");
 
                     }
                     else if (num >= 15)
                     {
                         num -= 15;
-                        sb.Append(" quinze");
+                        numeroPorExtenso.Append(" quinze");
 
                     }
                     else if (num >= 14)
                     {
                         num -= 14;
-                        sb.Append(" quatorze");
+                        numeroPorExtenso.Append(" quatorze");
 
                     }
                     else if (num >= 13)
                     {
                         num -= 13;
-                        sb.Append(" treze");
+                        numeroPorExtenso.Append(" treze");
 
                     }
                     else if (num >= 12)
                     {
                         num -= 12;
-                        sb.Append(" doze");
+                        numeroPorExtenso.Append(" doze");
 
                     }
                     else if (num >= 11)
                     {
                         num -= 11;
-                        sb.Append(" onze");
+                        numeroPorExtenso.Append(" onze");
 
                     }
                     else if (num >= 10)
                     {
                         num -= 10;
-                        sb.Append(" dez");
+                        numeroPorExtenso.Append(" dez");
 
 
                     }
@@ -380,66 +339,66 @@ namespace ValorPorExtenso
                 {
                     num -= 20;
 
-                    sb.Append(" vinte");
+                    numeroPorExtenso.Append(" vinte");
 
                 }
                 else if (num < 40)
                 {
                     num -= 30;
 
-                    sb.Append(" trinta");
+                    numeroPorExtenso.Append(" trinta");
 
                 }
                 else if (num < 50)
                 {
                     num -= 40;
 
-                    sb.Append(" quarenta");
+                    numeroPorExtenso.Append(" quarenta");
 
                 }
                 else if (num < 60)
                 {
                     num -= 50;
 
-                    sb.Append(" cinquenta");
+                    numeroPorExtenso.Append(" cinquenta");
 
                 }
                 else if (num < 70)
                 {
                     num -= 60;
 
-                    sb.Append(" seis");
+                    numeroPorExtenso.Append(" seis");
 
                 }
                 else if (num < 80)
                 {
                     num -= 70;
 
-                    sb.Append(" setenta");
+                    numeroPorExtenso.Append(" setenta");
 
                 }
                 else if (num < 90)
                 {
                     num -= 80;
 
-                    sb.Append(" oitenta");
+                    numeroPorExtenso.Append(" oitenta");
 
                 }
                 else if (num < 100)
                 {
                     num -= 90;
-                    sb.Append(" noventa");
+                    numeroPorExtenso.Append(" noventa");
 
                 }
-                unidades();
+                Unidades();
             }
 
-            void centenas()
+            void Centenas()
             {
 
                 if (num < 100)
                 {
-                    dezenas();
+                    Dezenas();
 
                 }
                 else if (num < 200)
@@ -447,23 +406,23 @@ namespace ValorPorExtenso
                     num -= 100;
                     if (num == 0)
                     {
-                        sb.Append(" cem");
+                        numeroPorExtenso.Append(" cem");
                     }
                     else if (num < 1)
                     {
-                        sb.Append(" cem");
-                        dezenas_decimal();
+                        numeroPorExtenso.Append(" cem");
+                        DezenasDecimal();
                     } else if (num >= 1)
                     {
-                        sb.Append(" cento");
-                        dezenas();
+                        numeroPorExtenso.Append(" cento");
+                        Dezenas();
                     }
 
                 }
                 else if (num < 300)
                 {
                     num -= 200;
-                    sb.Append(" duzentos");
+                    numeroPorExtenso.Append(" duzentos");
 
 
                 }
@@ -471,123 +430,123 @@ namespace ValorPorExtenso
                 {
                     num -= 300;
 
-                    sb.Append(" trezentos");
+                    numeroPorExtenso.Append(" trezentos");
 
                 }
                 else if (num < 500)
                 {
                     num -= 400;
 
-                    sb.Append(" quatrocentos");
+                    numeroPorExtenso.Append(" quatrocentos");
 
                 }
                 else if (num < 600)
                 {
                     num -= 500;
 
-                    sb.Append(" quinhentos");
+                    numeroPorExtenso.Append(" quinhentos");
 
                 }
                 else if (num < 700)
                 {
                     num -= 600;
 
-                    sb.Append(" seiscentos");
+                    numeroPorExtenso.Append(" seiscentos");
 
                 }
                 else if (num < 800)
                 {
                     num -= 700;
 
-                    sb.Append(" setecentos");
+                    numeroPorExtenso.Append(" setecentos");
 
                 }
                 else if (num < 900)
                 {
                     num -= 800;
 
-                    sb.Append(" oitocentos");
+                    numeroPorExtenso.Append(" oitocentos");
 
                 }
                 else if (num < 1000)
                 {
                     num -= 900;
 
-                    sb.Append(" novecentos");
+                    numeroPorExtenso.Append(" novecentos");
 
                 }
-                dezenas();
+                Dezenas();
             }
 
 
-            void milhar()
+            void Milhar()
             {
                 if (num < 1000)
                 {
-                    centenas();
+                    Centenas();
                 }
                 else if (num < 2000)
                 {
                     num -= 1000;
-                    sb.Append(" um");
+                    numeroPorExtenso.Append(" um");
 
                 }
                 else if (num < 3000)
                 {
                     num -= 2000;
-                    sb.Append(" dois");
+                    numeroPorExtenso.Append(" dois");
 
                 }
                 else if (num < 4000)
                 {
                     num -= 3000;
-                    sb.Append(" três");
+                    numeroPorExtenso.Append(" três");
 
                 }
                 else if (num < 5000)
                 {
                     num -= 4000;
-                    sb.Append(" quatro");
+                    numeroPorExtenso.Append(" quatro");
 
                 }
                 else if (num < 6000)
                 {
                     num -= 5000;
-                    sb.Append(" cinco");
+                    numeroPorExtenso.Append(" cinco");
 
                 }
                 else if (num < 7000)
                 {
                     num -= 6000;
-                    sb.Append(" seis");
+                    numeroPorExtenso.Append(" seis");
 
                 }
                 else if (num < 8000)
                 {
                     num -= 7000;
-                    sb.Append(" sete");
+                    numeroPorExtenso.Append(" sete");
 
                 }
                 else if (num < 9000)
                 {
                     num -= 8000;
-                    sb.Append(" oito");
+                    numeroPorExtenso.Append(" oito");
 
                 }
                 else if (num < 10000)
                 {
                     num -= 9000;
-                    sb.Append(" nove");
+                    numeroPorExtenso.Append(" nove");
 
                 }
-                centenas();
+                Centenas();
             }
 
-            void milhar1()
+            void Milhar1()
             {
                 if (num < 10000)
                 {
-                    milhar();
+                    Milhar();
                 }
 
                 else if (num < 20000)
@@ -595,316 +554,316 @@ namespace ValorPorExtenso
                     if (num >= 19000)
                     {
                         num -= 19000;
-                        sb.Append(" dezenove");
+                        numeroPorExtenso.Append(" dezenove");
 
                     }
                     else if (num >= 18000)
                     {
                         num -= 18000;
 
-                        sb.Append(" dezoito");
+                        numeroPorExtenso.Append(" dezoito");
 
                     }
                     else if (num >= 17000)
                     {
                         num -= 17000;
 
-                        sb.Append(" dezessete");
+                        numeroPorExtenso.Append(" dezessete");
 
                     }
                     else if (num >= 16000)
                     {
                         num -= 16000;
 
-                        sb.Append(" dezesseis");
+                        numeroPorExtenso.Append(" dezesseis");
 
                     }
                     else if (num >= 15000)
                     {
                         num -= 15000;
 
-                        sb.Append(" quinze");
+                        numeroPorExtenso.Append(" quinze");
 
                     }
                     else if (num >= 14000)
                     {
                         num -= 14000;
 
-                        sb.Append(" quatorze");
+                        numeroPorExtenso.Append(" quatorze");
 
                     }
                     else if (num >= 13000)
                     {
                         num -= 13000;
 
-                        sb.Append(" treze");
+                        numeroPorExtenso.Append(" treze");
 
                     }
                     else if (num >= 12000)
                     {
                         num -= 12000;
 
-                        sb.Append(" doze");
+                        numeroPorExtenso.Append(" doze");
 
                     }
                     else if (num >= 11000)
                     {
                         num -= 11000;
 
-                        sb.Append(" onze");
+                        numeroPorExtenso.Append(" onze");
 
                     }
                     else if (num >= 10000)
                     {
                         num -= 10000;
-                        sb.Append(" dez");
+                        numeroPorExtenso.Append(" dez");
 
                     }
                 }
                 else if (num < 30000)
                 {
                     num -= 20000;
-                    sb.Append(" vinte");
+                    numeroPorExtenso.Append(" vinte");
 
                 }
                 else if (num < 40000)
                 {
                     num -= 30000;
-                    sb.Append(" trinta");
+                    numeroPorExtenso.Append(" trinta");
 
                 }
                 else if (num < 50000)
                 {
                     num -= 40000;
-                    sb.Append(" quarenta");
+                    numeroPorExtenso.Append(" quarenta");
 
                 }
                 else if (num < 60000)
                 {
                     num -= 50000;
-                    sb.Append(" cinquenta");
+                    numeroPorExtenso.Append(" cinquenta");
 
                 }
                 else if (num < 70000)
                 {
                     num -= 60000;
-                    sb.Append(" sessenta");
+                    numeroPorExtenso.Append(" sessenta");
 
                 }
                 else if (num < 80000)
                 {
                     num -= 70000;
-                    sb.Append(" setenta");
+                    numeroPorExtenso.Append(" setenta");
 
                 }
                 else if (num < 90000)
                 {
                     num -= 80000;
-                    sb.Append(" oitenta");
+                    numeroPorExtenso.Append(" oitenta");
 
                 }
                 else if (num < 100000)
                 {
                     num -= 90000;
-                    sb.Append(" noventa");
+                    numeroPorExtenso.Append(" noventa");
 
                 }
-                milhar();
+                Milhar();
             }
 
-            void milhar2()
+            void Milhar2()
             {
                 if (num < 100000)
                 {
-                    milhar1();
+                    Milhar1();
                 }
                 else if (num < 200000)
                 {
                     num -= 100000;
-                    sb.Append(" cem");
+                    numeroPorExtenso.Append(" cem");
 
                 }
                 else if (num < 300000)
                 {
                     num -= 200000;
-                    sb.Append(" duzentos");
+                    numeroPorExtenso.Append(" duzentos");
 
                 }
                 else if (num < 400000)
                 {
                     num -= 300000;
-                    sb.Append(" trezentos");
+                    numeroPorExtenso.Append(" trezentos");
 
                 }
                 else if (num < 500000)
                 {
                     num -= 400000;
-                    sb.Append(" quatrocentos");
+                    numeroPorExtenso.Append(" quatrocentos");
 
                 }
                 else if (num < 600000)
                 {
                     num -= 500000;
-                    sb.Append(" quinhentos");
+                    numeroPorExtenso.Append(" quinhentos");
 
                 }
                 else if (num < 700000)
                 {
                     num -= 600000;
-                    sb.Append(" seiscentos");
+                    numeroPorExtenso.Append(" seiscentos");
 
                 }
                 else if (num < 800000)
                 {
                     num -= 700000;
-                    sb.Append(" setecentos");
+                    numeroPorExtenso.Append(" setecentos");
 
                 }
                 else if (num < 900000)
                 {
                     num -= 800000;
-                    sb.Append(" oitocentos");
+                    numeroPorExtenso.Append(" oitocentos");
 
                 }
                 else if (num < 1000000)
                 {
                     num -= 900000;
-                    sb.Append(" novecentos");
+                    numeroPorExtenso.Append(" novecentos");
 
                 }
-                milhar1();
+                Milhar1();
             }
 
-            void milhao()
+            void Milhao()
             {
                 if (num < 1000000)
                 {
-                    milhar2();
+                    Milhar2();
                 }
                 else if (num < 2000000)
                 {
                     num -= 1000000;
 
-                    sb.Append(" um");
+                    numeroPorExtenso.Append(" um");
 
                 }
                 else if (num < 3000000)
                 {
-                    sb.Append(" dois");
+                    numeroPorExtenso.Append(" dois");
                     num -= 2000000;
 
                 }
                 else if (num < 4000000)
                 {
-                    sb.Append(" três");
+                    numeroPorExtenso.Append(" três");
                     num -= 3000000;
 
                 }
                 else if (num < 5000000)
                 {
-                    sb.Append(" quatro");
+                    numeroPorExtenso.Append(" quatro");
                     num -= 4000000;
 
                 }
                 else if (num < 6000000)
                 {
-                    sb.Append(" cinco");
+                    numeroPorExtenso.Append(" cinco");
                     num -= 5000000;
 
                 }
                 else if (num < 7000000)
                 {
-                    sb.Append(" seis");
+                    numeroPorExtenso.Append(" seis");
                     num -= 6000000;
 
                 }
                 else if (num < 8000000)
                 {
-                    sb.Append(" sete");
+                    numeroPorExtenso.Append(" sete");
                     num -= 7000000000;
 
                 }
                 else if (num < 9000000)
                 {
-                    sb.Append(" oito");
+                    numeroPorExtenso.Append(" oito");
                     num -= 8000000;
 
                 }
                 else if (num < 10000000)
                 {
-                    sb.Append(" nove");
+                    numeroPorExtenso.Append(" nove");
                     num -= 9000000;
 
                 }
-                milhar2();
+                Milhar2();
 
             }
 
-            void milhao1()
+            void Milhao1()
             {
                 if (num < 10000000)
                 {
-                    milhao();
+                    Milhao();
                 }
                 else if (num < 20000000)
                 {
                     if (num >= 19000000)
                     {
-                        sb.Append(" dezenove");
+                        numeroPorExtenso.Append(" dezenove");
                         num -= 19000000;
                     }
                     else if (num >= 18000000)
                     {
-                        sb.Append(" dezoito");
+                        numeroPorExtenso.Append(" dezoito");
                         num -= 18000000;
 
 
                     }
                     else if (num >= 17000000)
                     {
-                        sb.Append(" dezessete");
+                        numeroPorExtenso.Append(" dezessete");
                         num -= 17000000;
 
                     }
                     else if (num >= 16000000)
                     {
-                        sb.Append(" dezesseis");
+                        numeroPorExtenso.Append(" dezesseis");
                         num -= 16000000;
 
                     }
                     else if (num >= 15000000)
                     {
-                        sb.Append(" quinze");
+                        numeroPorExtenso.Append(" quinze");
                         num -= 15000000;
 
                     }
                     else if (num >= 14000000)
                     {
-                        sb.Append(" quatorze");
+                        numeroPorExtenso.Append(" quatorze");
                         num -= 14000000;
 
                     }
                     else if (num >= 13000000)
                     {
-                        sb.Append(" treze");
+                        numeroPorExtenso.Append(" treze");
                         num -= 13000000;
 
                     }
                     else if (num >= 12000000)
                     {
-                        sb.Append(" doze");
+                        numeroPorExtenso.Append(" doze");
                         num -= 12000000;
 
                     }
                     else if (num >= 11000000)
                     {
-                        sb.Append(" onze");
+                        numeroPorExtenso.Append(" onze");
                         num -= 11000000;
 
                     }
                     else if (num >= 10000000)
                     {
-                        sb.Append(" dez");
+                        numeroPorExtenso.Append(" dez");
                         num -= 10000000;
 
                     }
@@ -912,232 +871,232 @@ namespace ValorPorExtenso
                 }
                 else if (num < 30000000)
                 {
-                    sb.Append(" vinte");
+                    numeroPorExtenso.Append(" vinte");
                     num -= 20000000;
                 }
                 else if (num < 40000000)
                 {
-                    sb.Append(" trinta");
+                    numeroPorExtenso.Append(" trinta");
                     num -= 30000000;
                 }
                 else if (num < 50000000)
                 {
-                    sb.Append(" quarenta");
+                    numeroPorExtenso.Append(" quarenta");
                     num -= 40000000;
                 }
                 else if (num < 60000000)
                 {
-                    sb.Append(" cinquenta");
+                    numeroPorExtenso.Append(" cinquenta");
                     num -= 50000000;
                 }
                 else if (num < 70000000)
                 {
-                    sb.Append(" sessenta");
+                    numeroPorExtenso.Append(" sessenta");
                     num -= 60000000;
                 }
                 else if (num < 80000000)
                 {
-                    sb.Append(" setenta");
+                    numeroPorExtenso.Append(" setenta");
                     num -= 70000000;
                 }
                 else if (num < 90000000)
                 {
-                    sb.Append(" oitenta");
+                    numeroPorExtenso.Append(" oitenta");
                     num -= 80000000;
                 }
                 else if (num < 100000000)
                 {
-                    sb.Append(" noventa");
+                    numeroPorExtenso.Append(" noventa");
                     num -= 90000000;
                 }
-                milhao();
+                Milhao();
 
             }
 
-            void milhao2()
+            void Milhao2()
             {
                 if (num < 100000000)
                 {
-                    milhao1();
+                    Milhao1();
                 }
                 else if (num < 200000000)
                 {
-                    sb.Append(" cem");
+                    numeroPorExtenso.Append(" cem");
                     num -= 100000000;
                 }
                 else if (num < 300000000)
                 {
-                    sb.Append(" duzentos");
+                    numeroPorExtenso.Append(" duzentos");
                     num -= 200000000;
                 }
                 else if (num < 400000000)
                 {
-                    sb.Append(" trezentos");
+                    numeroPorExtenso.Append(" trezentos");
                     num -= 300000000;
                 }
                 else if (num < 500000000)
                 {
-                    sb.Append(" quatrocentos");
+                    numeroPorExtenso.Append(" quatrocentos");
                     num -= 400000000;
                 }
                 else if (num < 600000000)
                 {
-                    sb.Append(" quinhentos");
+                    numeroPorExtenso.Append(" quinhentos");
                     num -= 500000000;
                 }
                 else if (num < 700000000)
                 {
-                    sb.Append(" seiscentos");
+                    numeroPorExtenso.Append(" seiscentos");
                     num -= 600000000;
                 }
                 else if (num < 800000000)
                 {
-                    sb.Append(" setecentos");
+                    numeroPorExtenso.Append(" setecentos");
                     num -= 700000000;
                 }
                 else if (num < 900000000)
                 {
-                    sb.Append(" oitocentos");
+                    numeroPorExtenso.Append(" oitocentos");
                     num -= 800000000;
                 }
                 else if (num < 1000000000)
                 {
-                    sb.Append(" novecentos");
+                    numeroPorExtenso.Append(" novecentos");
                     num -= 900000000;
                 }
-                milhao1();
+                Milhao1();
 
             }
 
-            void bilhao()
+            void Bilhao()
             {
                 if (num < 1000000000)
                 {
-                    milhao2();
+                    Milhao2();
                 }
                 else if (num < 2000000000)
                 {
-                    sb.Append(" um");
+                    numeroPorExtenso.Append(" um");
                     num -= 1000000000;
 
                 }
                 else if (num < 3000000000)
                 {
-                    sb.Append(" dois");
+                    numeroPorExtenso.Append(" dois");
                     num -= 2000000000;
 
                 }
                 else if (num < 4000000000)
                 {
-                    sb.Append(" três");
+                    numeroPorExtenso.Append(" três");
                     num -= 3000000000;
 
                 }
                 else if (num < 5000000000)
                 {
-                    sb.Append(" quatro");
+                    numeroPorExtenso.Append(" quatro");
                     num -= 4000000000;
 
                 }
                 else if (num < 6000000000)
                 {
-                    sb.Append(" cinco");
+                    numeroPorExtenso.Append(" cinco");
                     num -= 5000000000;
 
                 }
                 else if (num < 7000000000)
                 {
-                    sb.Append(" seis");
+                    numeroPorExtenso.Append(" seis");
                     num -= 6000000000;
 
                 }
                 else if (num < 8000000000)
                 {
-                    sb.Append(" sete");
+                    numeroPorExtenso.Append(" sete");
                     num -= 7000000000;
 
                 }
                 else if (num < 9000000000)
                 {
-                    sb.Append(" oito");
+                    numeroPorExtenso.Append(" oito");
                     num -= 8000000000;
 
                 }
                 else if (num < 10000000000)
                 {
-                    sb.Append(" nove");
+                    numeroPorExtenso.Append(" nove");
                     num -= 9000000000;
 
                 }
-                milhao2();
+                Milhao2();
 
             }
 
-            void bilhao1()
+            void Bilhao1()
             {
                 if (num < 10000000000)
                 {
-                    bilhao();
+                    Bilhao();
                 }
                 else if (num < 20000000000)
                 {
                     if (num >= 19000000000)
                     {
-                        sb.Append(" dezenove");
+                        numeroPorExtenso.Append(" dezenove");
                         num -= 19000000000;
                     }
                     else if (num >= 18000000000)
                     {
-                        sb.Append(" dezoito");
+                        numeroPorExtenso.Append(" dezoito");
                         num -= 18000000000;
 
 
                     }
                     else if (num >= 17000000000)
                     {
-                        sb.Append(" dezessete");
+                        numeroPorExtenso.Append(" dezessete");
                         num -= 17000000000;
 
                     }
                     else if (num >= 16000000000)
                     {
-                        sb.Append(" dezesseis");
+                        numeroPorExtenso.Append(" dezesseis");
                         num -= 16000000000;
 
                     }
                     else if (num >= 15000000000)
                     {
-                        sb.Append(" quinze");
+                        numeroPorExtenso.Append(" quinze");
                         num -= 15000000000;
 
                     }
                     else if (num >= 14000000000)
                     {
-                        sb.Append(" quatorze");
+                        numeroPorExtenso.Append(" quatorze");
                         num -= 14000000000;
 
                     }
                     else if (num >= 13000000000)
                     {
-                        sb.Append(" treze");
+                        numeroPorExtenso.Append(" treze");
                         num -= 13000000000;
 
                     }
                     else if (num >= 12000000000)
                     {
-                        sb.Append(" doze");
+                        numeroPorExtenso.Append(" doze");
                         num -= 12000000000;
 
                     }
                     else if (num >= 11000000000)
                     {
-                        sb.Append(" onze");
+                        numeroPorExtenso.Append(" onze");
                         num -= 11000000000;
 
                     }
                     else if (num >= 10000000000)
                     {
-                        sb.Append(" dez");
+                        numeroPorExtenso.Append(" dez");
                         num -= 10000000000;
 
                     }
@@ -1145,116 +1104,114 @@ namespace ValorPorExtenso
                 }
                 else if (num < 30000000000)
                 {
-                    sb.Append(" vinte");
+                    numeroPorExtenso.Append(" vinte");
                     num -= 20000000000;
                 }
                 else if (num < 40000000000)
                 {
-                    sb.Append(" trinta");
+                    numeroPorExtenso.Append(" trinta");
                     num -= 30000000000;
                 }
                 else if (num < 50000000000)
                 {
-                    sb.Append(" quarenta");
+                    numeroPorExtenso.Append(" quarenta");
                     num -= 40000000000;
                 }
                 else if (num < 60000000000)
                 {
-                    sb.Append(" cinquenta");
+                    numeroPorExtenso.Append(" cinquenta");
                     num -= 50000000000;
                 }
                 else if (num < 70000000000)
                 {
-                    sb.Append(" sessenta");
+                    numeroPorExtenso.Append(" sessenta");
                     num -= 60000000000;
                 }
                 else if (num < 80000000000)
                 {
-                    sb.Append(" setenta");
+                    numeroPorExtenso.Append(" setenta");
                     num -= 70000000000;
                 }
                 else if (num < 90000000000)
                 {
-                    sb.Append(" oitenta");
+                    numeroPorExtenso.Append(" oitenta");
                     num -= 80000000000;
                 }
                 else if (num < 100000000000)
                 {
-                    sb.Append(" noventa");
+                    numeroPorExtenso.Append(" noventa");
                     num -= 90000000000;
                 }
-                bilhao();
+                Bilhao();
 
             }
 
-            void bilhao2()
+            void Bilhao2()
             {
                 if (num < 100000000000)
                 {
-                    bilhao1();
+                    Bilhao1();
                 }
                 else if (num < 200000000000)
                 {
-                    sb.Append(" cem");
+                    numeroPorExtenso.Append(" cem");
                     num -= 100000000000;
                 }
                 else if (num < 300000000000)
                 {
-                    sb.Append(" duzentos");
+                    numeroPorExtenso.Append(" duzentos");
                     num -= 200000000000;
                 }
                 else if (num < 400000000000)
                 {
-                    sb.Append(" trezentos");
+                    numeroPorExtenso.Append(" trezentos");
                     num -= 300000000000;
                 }
                 else if (num < 500000000000)
                 {
-                    sb.Append(" quatrocentos");
+                    numeroPorExtenso.Append(" quatrocentos");
                     num -= 400000000000;
                 }
                 else if (num < 600000000000)
                 {
-                    sb.Append(" quinhentos");
+                    numeroPorExtenso.Append(" quinhentos");
                     num -= 500000000000;
                 }
                 else if (num < 700000000000)
                 {
-                    sb.Append(" seiscentos");
+                    numeroPorExtenso.Append(" seiscentos");
                     num -= 600000000000;
                 }
                 else if (num < 800000000000)
                 {
-                    sb.Append(" setecentos");
+                    numeroPorExtenso.Append(" setecentos");
                     num -= 700000000000;
                 }
                 else if (num < 900000000000)
                 {
-                    sb.Append(" oitocentos");
+                    numeroPorExtenso.Append(" oitocentos");
                     num -= 800000000000;
                 }
                 else if (num <= 999999999999.99m)
                 {
-                    sb.Append(" novecentos");
+                    numeroPorExtenso.Append(" novecentos");
                     num -= 900000000000;
                 }
 
                 
-                bilhao1();
+                Bilhao1();
 
             }
 
             if (num > 0)
             {
-                bilhao2();
+                Bilhao2();
             }
             else
             {
-                sb.Append("zero");
+                numeroPorExtenso.Append("zero");
             }
-            //string[] a = sb.ToString().Split();
-            // Console.WriteLine("A: "+a);
-            return sb;
+            return numeroPorExtenso;
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/home/logic/.dotnet/store/|arch|/|tfm|",
-      "/home/logic/.nuget/packages"
+      "C:\\Users\\gpmag\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\gpmag\\.nuget\\packages"
     ]
   }
 }

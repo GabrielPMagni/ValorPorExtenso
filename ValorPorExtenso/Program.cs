@@ -8,12 +8,11 @@ namespace ValorPorExtenso
     {
         static void Main(string[] args)
         {
+            decimal num;
             Console.WriteLine("Digite um número entre 0 e 999 bilhões: "); //Imprime na tela o que deve ser feito
-            decimal num = LerNum(); //variavel num recebe retorno da função LerNum
-            
+            num = LerNum(); //variavel num recebe retorno da função LerNum
             //Feito em uma nova função e não no Main para poder ser chamada em 
             //caso de erro sem precisar retornar ao Main
-             
             ClasseParaExtenso MyClasseParaExtenso = new ClasseParaExtenso();
             StringBuilder resultado = MyClasseParaExtenso.ParaExtenso(num);
             Console.WriteLine(resultado);
@@ -22,15 +21,20 @@ namespace ValorPorExtenso
         
         private static void TrabalharString(StringBuilder bruto, decimal num)
         {
-            string numeroExtenso = num.ToString().Reverse().ToString();
+            string numeroExtenso;
+            numeroExtenso = num.ToString().Reverse().ToString();
         }
 
         private static decimal LerNum()
         {
             try
             {
-                string stringNumero = Console.ReadLine();
-                decimal num = decimal.Parse(stringNumero);
+                string stringNumero;
+                decimal num;
+
+                stringNumero = Console.ReadLine();
+                num = decimal.Parse(stringNumero);
+
                 if (num >= 0 && num <= 999999999999.99m)
                 {
                     return num;

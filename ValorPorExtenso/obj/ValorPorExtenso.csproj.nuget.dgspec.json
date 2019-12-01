@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/logic/Downloads/ValorPorExtenso-StringBuilderUse/ValorPorExtenso/ValorPorExtenso.csproj": {}
+    "C:\\Users\\gpmag\\Documents\\Aplicativo\\ValorPorExtenso\\ValorPorExtenso\\ValorPorExtenso.csproj": {}
   },
   "projects": {
-    "/home/logic/Downloads/ValorPorExtenso-StringBuilderUse/ValorPorExtenso/ValorPorExtenso.csproj": {
+    "C:\\Users\\gpmag\\Documents\\Aplicativo\\ValorPorExtenso\\ValorPorExtenso\\ValorPorExtenso.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/logic/Downloads/ValorPorExtenso-StringBuilderUse/ValorPorExtenso/ValorPorExtenso.csproj",
+        "projectUniqueName": "C:\\Users\\gpmag\\Documents\\Aplicativo\\ValorPorExtenso\\ValorPorExtenso\\ValorPorExtenso.csproj",
         "projectName": "ValorPorExtenso",
-        "projectPath": "/home/logic/Downloads/ValorPorExtenso-StringBuilderUse/ValorPorExtenso/ValorPorExtenso.csproj",
-        "packagesPath": "/home/logic/.nuget/packages/",
-        "outputPath": "/home/logic/Downloads/ValorPorExtenso-StringBuilderUse/ValorPorExtenso/obj/",
+        "projectPath": "C:\\Users\\gpmag\\Documents\\Aplicativo\\ValorPorExtenso\\ValorPorExtenso\\ValorPorExtenso.csproj",
+        "packagesPath": "C:\\Users\\gpmag\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gpmag\\Documents\\Aplicativo\\ValorPorExtenso\\ValorPorExtenso\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/logic/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\gpmag\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
